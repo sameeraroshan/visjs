@@ -10,6 +10,7 @@
     <packaging>jar</packaging>
     <properties>
     <vaadin.version>7.2.5</vaadin.version>
+        <JDK_VERSION>1.7</JDK_VERSION>
     </properties>
 
     <dependencies>
@@ -44,8 +45,19 @@
             <artifactId>gson</artifactId>
             <version>2.2.4</version>
         </dependency>
-
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>${JDK_VERSION}</source>
+                    <target>${JDK_VERSION}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

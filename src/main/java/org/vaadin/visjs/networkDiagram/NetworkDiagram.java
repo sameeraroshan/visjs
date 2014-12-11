@@ -186,6 +186,13 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         markAsDirty();
     }
 
+    public void removeEdge(Edge... e){
+        Gson gson = new Gson();
+        String json = gson.toJson(e);
+        callFunction("removeEdge", json);
+        markAsDirty();
+    }
+
     public void drawConnections() {
         callFunction("drawConnections");
         markAsDirty();

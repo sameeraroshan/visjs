@@ -76,4 +76,12 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
     this.drawConnections = function () {
         graph.redraw();
     };
+
+    this.removeNode = function(n){
+        nodes.remove(JSON.parse(n));
+    };
+
+    this.removeEdge = function(e){
+        edges.remove(JSON.parse(e));
+    };
 };

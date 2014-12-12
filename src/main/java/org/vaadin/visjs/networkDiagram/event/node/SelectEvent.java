@@ -20,7 +20,7 @@ public class SelectEvent extends Event {
             getNodeIds().add(nodes.getInt(i));
         }
 
-        for(int i=0;i<nodes.length();i++){
+        for(int i=0;i<edges.length();i++){
             getEdgeIds().add(edges.getString(i));
         }
     }

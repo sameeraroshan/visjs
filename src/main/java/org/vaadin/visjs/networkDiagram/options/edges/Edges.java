@@ -8,24 +8,24 @@ import org.vaadin.visjs.networkDiagram.Edge;
  */
 public class Edges {
 
-    float hoverWidth = 1.5f;
+    private float hoverWidth = 1.5f;
 
-    int arrowScaleFactor = 1;
-    int fontSize = 14;
-    int width = 1;
-    int widthSelectionMultiplier = 2;
-    int widthMin =1;
-    int widthMax = 15;
+    private int arrowScaleFactor = 1;
+    private int fontSize = 14;
+    private int width = 1;
+    private int widthSelectionMultiplier = 2;
+    private int widthMin =1;
+    private int widthMax = 15;
 
-    String fontColor = "#343434";
-    String fontFace = "arial";
-    String fontFill = "white";
+    private String fontColor = "#343434";
+    private String fontFace = "arial";
+    private String fontFill = "white";
 
-    boolean inheritColor = false;
+    private boolean inheritColor = false;
 
-    Edge.Style style= Edge.Style.Arrow;
-    Color color = new Color("#848484","#848484");
-    Dash dash;
+    private Edge.Style style= Edge.Style.Arrow;
+    private Color color = new Color("#848484","#848484");
+    private Dash dash;
 
     public float getHoverWidth() {
         return hoverWidth;

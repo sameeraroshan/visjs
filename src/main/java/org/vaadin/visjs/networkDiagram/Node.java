@@ -41,14 +41,33 @@ public class Node {
     private Color color;
     private Shape shape = Shape.ellipse;
 
-    private transient List<Edge> edgeList;
-    private transient Map<String, Edge> edgeMap;
+    private transient List<Edge> edgeList = new ArrayList<>();;
+    private transient Map<String, Edge> edgeMap = new HashMap<>();;
 
     public Node(int id, String label) {
         this.id = id;
         this.label = label;
-        edgeList = new ArrayList<>();
-        edgeMap = new HashMap<>();
+    }
+
+    public Node(int id, String label,String image) {
+        this.id = id;
+        this.label = label;
+        this.image = image;
+    }
+
+    public Node(int id, String label, Node.Shape shape,String group){
+        this.id = id;
+        this.label = label;
+        this.shape = shape;
+        this.group = group;
+    }
+
+    public Node(int id, String label, Node.Shape shape,String group,String image){
+        this.id = id;
+        this.label = label;
+        this.shape = shape;
+        this.group = group;
+        this.image = image;
     }
 
     public int getId() {

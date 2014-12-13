@@ -2,6 +2,7 @@ package org.vaadin.visjs.networkDiagram;
 
 import com.google.gson.JsonObject;
 import com.vaadin.ui.Component;
+import org.vaadin.visjs.networkDiagram.options.edges.Dash;
 
 /**
  * Created by roshans on 10/10/14.
@@ -32,9 +33,19 @@ public class Edge {
     private int width;
     private Color color;
 
+    private Edge.Style style= Edge.Style.Arrow;
+    private Dash dash;
+
     public Edge(int from, int to) {
         this.from = from;
         this.to = to;
+    }
+
+    public Edge(int from,int to,Edge.Style style){
+        this.from = from;
+        this.to = to;
+        this.style = style;
+
     }
 
     public int getFrom() {
@@ -205,8 +216,20 @@ public class Edge {
         this.color = color;
     }
 
-    public void addEdgeClickListener(){
+    public Dash getDash() {
+        return dash;
+    }
 
+    public void setDash(Dash dash) {
+        this.dash = dash;
+    }
+
+    public Style getStyle() {
+        return style;
+    }
+
+    public void setStyle(Style style) {
+        this.style = style;
     }
 
     public static enum Style {

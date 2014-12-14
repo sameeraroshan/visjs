@@ -1,5 +1,6 @@
 package org.vaadin.visjs.networkDiagram;
 
+import com.google.gson.annotations.SerializedName;
 import org.vaadin.visjs.networkDiagram.event.node.*;
 import org.vaadin.visjs.networkDiagram.listener.NodeListener;
 
@@ -53,6 +54,7 @@ public class Node {
         this.id = id;
         this.label = label;
         this.image = image;
+        this.shape = Shape.image;
     }
 
     public Node(int id, String label, Node.Shape shape,String group){
@@ -68,6 +70,7 @@ public class Node {
         this.shape = shape;
         this.group = group;
         this.image = image;
+        this.shape = Shape.image;
     }
 
     public int getId() {
@@ -289,28 +292,28 @@ public class Node {
     }
 
     public static enum Shape {
-        ellipse("ellipse"),
-        circle("circle"),
-        box("box"),
-        database("database"),
-        image("image"),
-        label("label"),
-        dot("dot"),
-        star("star"),
-        triangle("triangle"),
-        triangleDown("triangleDown"),
-        square("square");
-
-        private String shape;
-
-        Shape(String shape) {
-            this.shape = shape;
-        }
-
-        @Override
-        public String toString() {
-            return shape;
-        }
+        @SerializedName("ellipse")
+        ellipse,
+        @SerializedName("circle")
+        circle,
+        @SerializedName("box")
+        box,
+        @SerializedName("database")
+        database,
+        @SerializedName("image")
+        image,
+        @SerializedName("label")
+        label,
+        @SerializedName("dot")
+        dot,
+        @SerializedName("star")
+        star,
+        @SerializedName("triangle")
+        triangle,
+        @SerializedName("triangleDown")
+        triangleDown,
+        @SerializedName("square")
+        square;
     }
 
     public static abstract class NodeSelectListener extends NodeListener {

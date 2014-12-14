@@ -23,7 +23,7 @@ public class Edges {
 
     private boolean inheritColor = false;
 
-    private Edge.Style style= Edge.Style.Arrow;
+    private Edge.Style style= Edge.Style.arrow;
     private Color color = new Color("#848484","#848484");
     private Dash dash;
 

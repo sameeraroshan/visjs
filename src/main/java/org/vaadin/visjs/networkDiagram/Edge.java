@@ -3,6 +3,7 @@ package org.vaadin.visjs.networkDiagram;
 import com.google.gson.JsonObject;
 import com.vaadin.ui.Component;
 import org.vaadin.visjs.networkDiagram.options.edges.Dash;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by roshans on 10/10/14.
@@ -33,7 +34,7 @@ public class Edge {
     private int width;
     private Color color;
 
-    private Edge.Style style= Edge.Style.Arrow;
+    private Edge.Style style= Style.line;
     private Dash dash;
 
     public Edge(int from, int to) {
@@ -41,12 +42,58 @@ public class Edge {
         this.to = to;
     }
 
+    public Edge(int from, int to , int width) {
+        this.from = from;
+        this.to = to;
+        this.width = width;
+    }
+
+    public Edge(int from,int to,Color color){
+        this.from = from;
+        this.to = to;
+        this.color = color;
+    }
+
+    public Edge(int from,int to,Color color,int width ){
+        this.from = from;
+        this.to = to;
+        this.color = color;
+        this.width = width;
+    }
+
+
     public Edge(int from,int to,Edge.Style style){
         this.from = from;
         this.to = to;
         this.style = style;
 
     }
+
+    public Edge(int from,int to,Edge.Style style, int width){
+        this.from = from;
+        this.to = to;
+        this.style = style;
+        this.width = width;
+
+    }
+
+    public Edge(int from,int to,Edge.Style style,Color color){
+        this.from = from;
+        this.to = to;
+        this.style = style;
+        this.color = color;
+    }
+
+    public Edge(int from,int to,Edge.Style style,Color color, int width ){
+        this.from = from;
+        this.to = to;
+        this.style = style;
+        this.color = color;
+        this.width= width;
+
+    }
+
+
 
     public int getFrom() {
         return from;
@@ -233,20 +280,13 @@ public class Edge {
     }
 
     public static enum Style {
-        line("line"),
-        Arrow("arrow"),
-        ArrowCenter("arrow-center"),
-        DashLine("dash-line");
-
-        private String style;
-
-        Style(String style) {
-            this.style = style;
-        }
-
-        @Override
-        public String toString() {
-            return this.style;
-        }
+        @SerializedName("line")
+        line,
+        @SerializedName("arrow")
+        arrow,
+        @SerializedName("arrow-center")
+        arrowCenter,
+        @SerializedName("dash-line")
+        dashLine;
     }
 }

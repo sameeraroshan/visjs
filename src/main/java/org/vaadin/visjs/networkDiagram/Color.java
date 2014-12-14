@@ -12,6 +12,16 @@ public class Color {
 
     public Color() {
     }
+    public Color(String backgroundColor){
+        this.background = background;
+    }
+    public Color(String backgroundColor,String hoverColor, String highlightColor, String borderColor ){
+        this.background = backgroundColor;
+        this.hover = hoverColor;
+        this.highlight = highlightColor;
+        this.border = borderColor;
+
+    }
 
     public Color(String hover, String highlight) {
         this.hover = hover;

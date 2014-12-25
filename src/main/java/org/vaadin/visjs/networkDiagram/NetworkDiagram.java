@@ -148,14 +148,12 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         Gson gson = new Gson();
         String json = gson.toJson(options);
         callFunction("updateOptions", json);
-        markAsDirty();
     }
 
     public void addNode(Node... node) {
         Gson gson = new Gson();
         String json = gson.toJson(node);
         callFunction("addNodes", json);
-        markAsDirty();
     }
 
     public void addNodes(List<Node> nodes) {
@@ -170,33 +168,41 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         Gson gson = new Gson();
         String json = gson.toJson(edges);
         callFunction("addEdges", json);
-        markAsDirty();
     }
 
-    public void addEdge(Edge... e) {
+    public void addEdge(Edge... edges) {
         Gson gson = new Gson();
-        String json = gson.toJson(e);
+        String json = gson.toJson(edges);
         callFunction("addEdges", json);
-        markAsDirty();
     }
 
     public void removeNode(Node... node) {
         Gson gson = new Gson();
         String json = gson.toJson(node);
         callFunction("removeNode", json);
-        markAsDirty();
     }
 
-    public void removeEdge(Edge... e){
+    public void removeEdge(Edge... edges){
         Gson gson = new Gson();
-        String json = gson.toJson(e);
+        String json = gson.toJson(edges);
         callFunction("removeEdge", json);
-        markAsDirty();
+
+    }
+
+    public void updateNode(Node... node){
+        Gson gson = new Gson();
+        String json = gson.toJson(node);
+        callFunction("updateNode", json);
+    }
+
+    public void updateEdge(Edge... edges){
+        Gson gson = new Gson();
+        String json = gson.toJson(edges);
+        callFunction("updateEdge", json);
     }
 
     public void drawConnections() {
         callFunction("drawConnections");
-        markAsDirty();
     }
 
     public void addNodeSelectListener(Node.NodeSelectListener listener) {

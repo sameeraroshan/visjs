@@ -13,7 +13,7 @@ public class Options {
 
     private boolean clickToUse = false;
     private boolean configurePhysics = false;
-    private boolean hover = false;
+    private boolean hover = true;
     private boolean dragNetwork = true;
     private boolean dragNodes = true;
     private boolean hideNodesOnDrag = false;
@@ -29,7 +29,9 @@ public class Options {
 
     private Physics physics;
     private Options options;
-    private SmoothCurves smoothCurves;
+
+    //private SmoothCurves smoothCurves;
+    private boolean smoothCurves = false;
     private Edges edges;
     private Nodes nodes;
     private Cluster clustering;
@@ -156,11 +158,11 @@ public class Options {
         this.options = options;
     }
 
-    public SmoothCurves getSmoothCurves() {
+    public boolean getSmoothCurves() {
         return smoothCurves;
     }
 
-    public void setSmoothCurves(SmoothCurves smoothCurves) {
+    public void setSmoothCurves(boolean smoothCurves) {
         this.smoothCurves = smoothCurves;
     }
 

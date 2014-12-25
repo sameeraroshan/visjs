@@ -5,8 +5,8 @@ package org.vaadin.visjs.networkDiagram.options;
  */
 public class HierarchicalLayout {
 
-    private boolean enabled = false;
-    private int levelSeparation = 50;
+    private boolean enabled = true;
+    private int levelSeparation = 100;
     private int nodeSpacing = 100;
     private Direction direction = Direction.UD;
     private Layout layout = Layout.hubsize;

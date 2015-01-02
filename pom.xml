@@ -6,10 +6,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.vaadin.addon</groupId>
     <artifactId>visjs-addon</artifactId>
-    <version>1.0.0.1</version>
+    <version>1.0.0.2</version>
     <packaging>jar</packaging>
     <properties>
-        <vaadin.version>7.2.5</vaadin.version>
+        <vaadin.version>7.0.0</vaadin.version>
         <JDK_VERSION>1.7</JDK_VERSION>
         <Implementation-Version>${project.version}</Implementation-Version>
         <Implementation-Title>${project.name}</Implementation-Title>
@@ -38,8 +38,18 @@
 
     <developers>
         <developer>
-            <id>roshans</id>
+            <id>sameeraroshan</id>
             <name>Sameera Roshan</name>
+            <email>sameeraroshanuom@gmail.com</email>
+            <url>http://vaadin.com/web/sameeraroshan</url>
+            <!--<organization>Vaadin Ltd</organization>-->
+            <!--<organizationUrl>http://vaadin.com/</organizationUrl>-->
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+                <role>team manager</role>
+            </roles>
+            <timezone>5.30</timezone>
         </developer>
     </developers>
 
@@ -62,12 +72,7 @@
             <version>${vaadin.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-client-compiled</artifactId>
-            <version>${vaadin.version}</version>
-            <scope>provided</scope>
-        </dependency>
+
         <!--
           Needed when using the widgetset optimizer (custom ConnectorBundleLoaderFactory).
 
@@ -75,12 +80,7 @@
           compilation classpath by vaadin-maven-plugin so normally there is no need for an
         explicit dependency.
         -->
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-client</artifactId>
-            <version>${vaadin.version}</version>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

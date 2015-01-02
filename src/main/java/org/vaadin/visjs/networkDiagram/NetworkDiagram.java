@@ -182,20 +182,20 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         callFunction("removeNode", json);
     }
 
-    public void removeEdge(Edge... edges){
+    public void removeEdge(Edge... edges) {
         Gson gson = new Gson();
         String json = gson.toJson(edges);
         callFunction("removeEdge", json);
 
     }
 
-    public void updateNode(Node... node){
+    public void updateNode(Node... node) {
         Gson gson = new Gson();
         String json = gson.toJson(node);
         callFunction("updateNode", json);
     }
 
-    public void updateEdge(Edge... edges){
+    public void updateEdge(Edge... edges) {
         Gson gson = new Gson();
         String json = gson.toJson(edges);
         callFunction("updateEdge", json);
@@ -351,9 +351,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void fireNodeSelectEvent(SelectEvent event) {
-        for (Integer nodeID : event.getNodeIds()) {
+        for (String nodeID : event.getNodeIds()) {
             for (Node.NodeSelectListener listener : nodeSelectListeners) {
-                if (listener.getNode().getId() == nodeID) {
+                if (listener.getNode().getId().equals(nodeID)) {
                     listener.onFired(event);
                 }
             }
@@ -361,9 +361,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void fireNodeClickEvent(ClickEvent event) {
-        for (Integer nodeID : event.getNodeIds()) {
+        for (String nodeID : event.getNodeIds()) {
             for (Node.NodeClickListener listener : nodeClickListeners) {
-                if (listener.getNode().getId() == nodeID) {
+                if (listener.getNode().getId().equals(nodeID)) {
                     listener.onFired(event);
                 }
             }
@@ -371,9 +371,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void fireNodeDoubleClickEvent(DoubleClickEvent event) {
-        for (Integer nodeID : event.getNodeIds()) {
+        for (String nodeID : event.getNodeIds()) {
             for (Node.NodeDoubleClickListener listener : nodeDoubleClickListeners) {
-                if (listener.getNode().getId() == nodeID) {
+                if (listener.getNode().getId().equals(nodeID)) {
                     listener.onFired(event);
                 }
             }
@@ -381,9 +381,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void fireNodeHoverEvent(HoverEvent event) {
-        for (Integer nodeID : event.getNodeIds()) {
+        for (String nodeID : event.getNodeIds()) {
             for (Node.NodeHoverListener listener : nodeHoverListeners) {
-                if (listener.getNode().getId() == nodeID) {
+                if (listener.getNode().getId().equals(nodeID)) {
                     listener.onFired(event);
                 }
             }
@@ -392,9 +392,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void fireNodeBlurEvent(BlurEvent event) {
-        for (Integer nodeID : event.getNodeIds()) {
+        for (String nodeID : event.getNodeIds()) {
             for (Node.NodeBlurListener listener : nodeBlurListeners) {
-                if (listener.getNode().getId() == nodeID) {
+                if (listener.getNode().getId().equals(nodeID)) {
                     listener.onFired(event);
                 }
             }
@@ -402,9 +402,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void fireNodeDragStartEvent(DragStartEvent event) {
-        for (Integer nodeID : event.getNodeIds()) {
+        for (String nodeID : event.getNodeIds()) {
             for (Node.NodeDragStartListener listener : nodeDragStartListeners) {
-                if (listener.getNode().getId() == nodeID) {
+                if (listener.getNode().getId().equals(nodeID)) {
                     listener.onFired(event);
                 }
             }
@@ -412,9 +412,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void fireNodeDragEndEvent(DragEndEvent event) {
-        for (Integer nodeID : event.getNodeIds()) {
+        for (String nodeID : event.getNodeIds()) {
             for (Node.NodeDragEndListener listener : nodeDragEndListeners) {
-                if (listener.getNode().getId() == nodeID) {
+                if (listener.getNode().getId().equals(nodeID)) {
                     listener.onFired(event);
                 }
             }

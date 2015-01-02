@@ -17,7 +17,7 @@ public class SelectEvent extends Event {
         JSONArray edges = properties.getJSONObject(0).getJSONArray("edges");
         JSONArray nodes = properties.getJSONObject(0).getJSONArray("nodes");
         for(int i = 0 ; i<nodes.length() ; i++ ){
-            getNodeIds().add(nodes.getInt(i));
+            getNodeIds().add(nodes.getString(i));
         }
 
         for(int i=0;i<edges.length();i++){

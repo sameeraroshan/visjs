@@ -11,7 +11,7 @@ import org.json.JSONException;
 public class HoverEvent extends Event {
     public HoverEvent(JSONArray properties) throws JSONException {
         super();
-        int nodeID = properties.getJSONObject(0).getInt("node");
+        String nodeID = properties.getJSONObject(0).getString("node");
         getNodeIds().add(nodeID);
     }
 }

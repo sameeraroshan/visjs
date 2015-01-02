@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class Node {
 
-    private int id;
+    private String id;
     private int level;
     private int value;
     private int x;
@@ -46,11 +46,23 @@ public class Node {
     private transient Map<String, Edge> edgeMap = new HashMap<>();;
 
     public Node(int id, String label) {
+        this.id = Integer.toString(id);
+        this.label = label;
+    }
+
+    public Node(String id, String label) {
         this.id = id;
         this.label = label;
     }
 
     public Node(int id, String label,String image) {
+        this.id = Integer.toString(id);
+        this.label = label;
+        this.image = image;
+        this.shape = Shape.image;
+    }
+
+    public Node(String id, String label,String image) {
         this.id = id;
         this.label = label;
         this.image = image;
@@ -58,6 +70,13 @@ public class Node {
     }
 
     public Node(int id, String label, Node.Shape shape,String group){
+        this.id = Integer.toString(id);;
+        this.label = label;
+        this.shape = shape;
+        this.group = group;
+    }
+
+    public Node(String id, String label, Node.Shape shape,String group){
         this.id = id;
         this.label = label;
         this.shape = shape;
@@ -65,6 +84,15 @@ public class Node {
     }
 
     public Node(int id, String label, Node.Shape shape,String group,String image){
+        this.id = Integer.toString(id);;
+        this.label = label;
+        this.shape = shape;
+        this.group = group;
+        this.image = image;
+        this.shape = Shape.image;
+    }
+
+    public Node(String id, String label, Node.Shape shape,String group,String image){
         this.id = id;
         this.label = label;
         this.shape = shape;
@@ -73,11 +101,11 @@ public class Node {
         this.shape = Shape.image;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

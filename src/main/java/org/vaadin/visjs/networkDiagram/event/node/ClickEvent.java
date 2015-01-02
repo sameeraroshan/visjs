@@ -28,7 +28,7 @@ public class ClickEvent extends Event {
         canvasY = canvas.getInt("y");
 
         for (int i = 0; i < nodes.length(); i++) {
-            getNodeIds().add(nodes.getInt(i));
+            getNodeIds().add(nodes.getString(i));
         }
 
         for (int i = 0; i < edges.length(); i++) {

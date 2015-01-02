@@ -12,7 +12,7 @@ public class DragEndEvent extends Event {
         super();
         JSONArray nodes = properties.getJSONObject(0).getJSONArray("nodeIds");
         for (int i = 0; i < nodes.length(); i++) {
-            getNodeIds().add(nodes.getInt(i));
+            getNodeIds().add(nodes.getString(i));
         }
     }
 }

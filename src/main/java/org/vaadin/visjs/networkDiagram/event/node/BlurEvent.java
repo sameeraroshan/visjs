@@ -10,7 +10,7 @@ import org.json.JSONException;
 public class BlurEvent extends Event {
     public BlurEvent(JSONArray properties) throws JSONException {
         super();
-        int nodeID = properties.getJSONObject(0).getInt("node");
+        String nodeID = properties.getJSONObject(0).getString("node");
         getNodeIds().add(nodeID);
     }
 }

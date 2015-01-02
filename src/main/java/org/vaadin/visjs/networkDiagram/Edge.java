@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Edge {
 
-    private int from;
-    private int to;
+    private String from;
+    private String to;
     private int value;
     private int stabilizationIterations = 1000;
 
@@ -38,76 +38,122 @@ public class Edge {
     private Dash dash;
 
     public Edge(int from, int to) {
-        this.from = from;
-        this.to = to;
+        this.from = Integer.toString(from);
+        this.to =Integer.toString(to) ;
+    }
+    public Edge(String from, String to) {
+        this.from =  from;
+        this.to = to ;
     }
 
     public Edge(int from, int to , int width) {
-        this.from = from;
-        this.to = to;
+        this.from = Integer.toString(from);
+        this.to =Integer.toString(to) ;
+        this.width = width;
+    }
+
+    public Edge(String from, String to , int width) {
+        this.from =  from;
+        this.to = to ;
         this.width = width;
     }
 
     public Edge(int from,int to,Color color){
-        this.from = from;
-        this.to = to;
+        this.from = Integer.toString(from);
+        this.to =Integer.toString(to) ;
+        this.color = color;
+    }
+
+    public Edge(String from, String to,Color color){
+        this.from =  from;
+        this.to = to ;
         this.color = color;
     }
 
     public Edge(int from,int to,Color color,int width ){
-        this.from = from;
-        this.to = to;
+        this.from = Integer.toString(from);
+        this.to =Integer.toString(to) ;
+        this.color = color;
+        this.width = width;
+    }
+    public Edge(String from, String to,Color color,int width ){
+        this.from =  from;
+        this.to = to ;
         this.color = color;
         this.width = width;
     }
 
-
     public Edge(int from,int to,Edge.Style style){
-        this.from = from;
-        this.to = to;
+        this.from = Integer.toString(from);
+        this.to =Integer.toString(to) ;
+        this.style = style;
+
+    }
+
+    public Edge(String from, String to,Edge.Style style){
+        this.from =  from;
+        this.to = to ;
         this.style = style;
 
     }
 
     public Edge(int from,int to,Edge.Style style, int width){
-        this.from = from;
-        this.to = to;
+        this.from = Integer.toString(from);
+        this.to =Integer.toString(to) ;
+        this.style = style;
+        this.width = width;
+    }
+    public Edge(String from, String to,Edge.Style style, int width){
+        this.from =  from;
+        this.to = to ;
         this.style = style;
         this.width = width;
 
     }
 
     public Edge(int from,int to,Edge.Style style,Color color){
-        this.from = from;
-        this.to = to;
+        this.from = Integer.toString(from);
+        this.to =Integer.toString(to) ;
+        this.style = style;
+        this.color = color;
+    }
+
+    public Edge(String from, String to,Edge.Style style,Color color){
+        this.from =  from;
+        this.to = to ;
         this.style = style;
         this.color = color;
     }
 
     public Edge(int from,int to,Edge.Style style,Color color, int width ){
-        this.from = from;
-        this.to = to;
+        this.from = Integer.toString(from);
+        this.to =Integer.toString(to) ;
         this.style = style;
         this.color = color;
         this.width= width;
-
     }
 
+    public Edge(String from, String to,Edge.Style style,Color color, int width ){
+        this.from =  from;
+        this.to = to ;
+        this.style = style;
+        this.color = color;
+        this.width= width;
+    }
 
-
-    public int getFrom() {
+    public String getFrom() {
         return from;
     }
 
-    public void setFrom(int from) {
+    public void setFrom(String from) {
         this.from = from;
     }
 
-    public int getTo() {
+    public String getTo() {
         return to;
     }
 
-    public void setTo(int to) {
+    public void setTo(String to) {
         this.to = to;
     }
 

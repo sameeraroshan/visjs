@@ -43,7 +43,6 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         addFunction(Constants.ON_SELECT, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onSelect" + properties);
                 SelectEvent event = EventGenerator.getNodeSelectEvent(properties);
                 fireNodeSelectEvent(event);
             }
@@ -51,7 +50,6 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         addFunction(Constants.ON_CLICK, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onClick" + properties);
                 ClickEvent event = EventGenerator.getNodeClickEvent(properties);
                 fireNodeClickEvent(event);
             }
@@ -59,7 +57,6 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         addFunction(Constants.ON_DOUBLE_CLICK, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onDoubleClick" + properties);
                 DoubleClickEvent event = EventGenerator.getNodeDoubleClickEvent(properties);
                 fireNodeDoubleClickEvent(event);
             }
@@ -67,7 +64,6 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         addFunction(Constants.ON_HOVER_NODE, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onHoverNode" + properties);
                 HoverEvent event = EventGenerator.getNodeHoverEvent(properties);
                 fireNodeHoverEvent(event);
             }
@@ -75,7 +71,6 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         addFunction(Constants.ON_BLUR_NODE, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onBlurNode" + properties);
                 BlurEvent event = EventGenerator.getNodeBlurEvent(properties);
                 fireNodeBlurEvent(event);
             }
@@ -83,7 +78,6 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         addFunction(Constants.ON_DRAG_START, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onDragStart" + properties);
                 DragStartEvent event = EventGenerator.getNodeDragStartEvent(properties);
                 fireNodeDragStartEvent(event);
             }
@@ -91,7 +85,6 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         addFunction(Constants.ON_DRAG_END, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onDragEnd" + properties);
                 DragEndEvent event = EventGenerator.getNodeDragEndEvent(properties);
                 fireNodeDragEndEvent(event);
             }
@@ -144,58 +137,63 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
 
 
     public void updateOptions(Options options) {
-        getState().options = options;
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(options);
         callFunction("updateOptions", json);
     }
 
     public void addNode(Node... node) {
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(node);
         callFunction("addNodes", json);
     }
 
     public void addNodes(List<Node> nodes) {
-        getState().nodes = nodes;
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(nodes);
         callFunction("addNodes", json);
-        markAsDirty();
     }
 
     public void addEdges(List<Edge> edges) {
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(edges);
         callFunction("addEdges", json);
     }
 
     public void addEdge(Edge... edges) {
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(edges);
         callFunction("addEdges", json);
     }
 
     public void removeNode(Node... node) {
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(node);
         callFunction("removeNode", json);
     }
 
     public void removeEdge(Edge... edges) {
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(edges);
         callFunction("removeEdge", json);
-
     }
 
     public void updateNode(Node... node) {
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(node);
         callFunction("updateNode", json);
     }
 
     public void updateEdge(Edge... edges) {
+        getState().updates++;
         Gson gson = new Gson();
         String json = gson.toJson(edges);
         callFunction("updateEdge", json);

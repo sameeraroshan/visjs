@@ -11,6 +11,10 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
     var container;
     var self = this;
 
+    this.onStateChange = function(){
+        graph.redraw();
+    }
+
     this.init = function(o){
         options = JSON.parse(o);
         nodes = new vis.DataSet();

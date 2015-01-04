@@ -17,8 +17,8 @@ public class Node {
     private String id;
     private int level;
     private int value;
-    private int x;
-    private int y;
+    //private int x;
+    //private int y;
     private int mass = 1;
     private int widthMin = 16;
     private int widthMax = 64;
@@ -133,7 +133,7 @@ public class Node {
         this.value = value;
     }
 
-    public int getX() {
+    /*public int getX() {
         return x;
     }
 
@@ -147,7 +147,7 @@ public class Node {
 
     public void setY(int y) {
         this.y = y;
-    }
+    }*/
 
     public int getMass() {
         return mass;

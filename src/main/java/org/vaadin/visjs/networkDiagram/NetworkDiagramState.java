@@ -12,7 +12,5 @@ import java.util.List;
  */
 
 public class NetworkDiagramState extends JavaScriptComponentState {
-    public Options options;
-    public List<Node> nodes = new ArrayList<>();
-    public List<Edge> edges = new ArrayList<>();
+    public int updates = 0;
 }

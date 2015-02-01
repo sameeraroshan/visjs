@@ -199,6 +199,18 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         callFunction("updateEdge", json);
     }
 
+    public void updateEdge(List<Edge> edges){
+        Gson gson = new Gson();
+        String json = gson.toJson(edges);
+        callFunction("updateEdge", json);
+    }
+
+    public void updateNode(List<Node> nodes){
+        Gson gson = new Gson();
+        String json = gson.toJson(nodes);
+        callFunction("updateNode", json);
+    }
+
     public void drawConnections() {
         callFunction("drawConnections");
     }

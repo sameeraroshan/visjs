@@ -96,4 +96,16 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
     this.updateEdge = function(e){
         edges.update(JSON.parse(e));
     };
+
+    this.clearNodes = function(){
+        nodes.clear();
+    };
+
+    this.clearEdges = function(){
+        edges.clear();
+    };
+
+    this.destroyNetwork = function(){
+        graph.destroyNetwork();
+    };
 };

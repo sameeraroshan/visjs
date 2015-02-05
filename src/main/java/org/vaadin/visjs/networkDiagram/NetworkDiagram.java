@@ -89,7 +89,7 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
                 fireNodeDragEndEvent(event);
             }
         });
-        /*addFunction(Constants.ON_START_STABILIZATION, new JavaScriptFunction() {
+        addFunction(Constants.ON_START_STABILIZATION, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
                 //System.out.println("onStartStabilization" + properties);
@@ -123,7 +123,7 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
                 //System.out.println("onResize" + properties);
                 //fireGraphResizeEvent();
             }
-        });*/
+        });
 
         Gson gson = new Gson();
         String json = gson.toJson(options);

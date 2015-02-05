@@ -92,35 +92,35 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         addFunction(Constants.ON_START_STABILIZATION, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onStartStabilization" + properties);
+                //System.out.println("onStartStabilization" + properties);
                 //fireGraphStabilizationStartEvent();
             }
         });
         addFunction(Constants.ON_STABILIZED, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onStabilized" + properties);
+                //System.out.println("onStabilized" + properties);
                 //fireGraphStabilizedEvent();
             }
         });
         addFunction(Constants.ON_VIEW_CHANGED, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onViewChanged" + properties);
+                //System.out.println("onViewChanged" + properties);
                 //fireGraphViewChangedEvent();
             }
         });
         addFunction(Constants.ON_ZOOM, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onZoom" + properties);
+                //System.out.println("onZoom" + properties);
                 //fireGraphZoomEvent();
             }
         });
         addFunction(Constants.ON_RESIZE, new JavaScriptFunction() {
             @Override
             public void call(final JSONArray properties) throws JSONException {
-                System.out.println("onResize" + properties);
+                //System.out.println("onResize" + properties);
                 //fireGraphResizeEvent();
             }
         });

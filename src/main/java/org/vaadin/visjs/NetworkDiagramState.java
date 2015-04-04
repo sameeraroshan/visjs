@@ -1,4 +1,4 @@
-package org.vaadin.visjs.networkDiagram;
+package org.vaadin.visjs;
 
 import org.vaadin.visjs.networkDiagram.options.Options;
 import com.vaadin.shared.ui.JavaScriptComponentState;

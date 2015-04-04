@@ -9,6 +9,7 @@ public class Color {
     private String highlight = "#D2E5FF";
     private String border = "#2B7CE9";
     private String background = "#97C2FC";
+    private String color = "#df6b1d";
 
     public Color() {
     }
@@ -65,5 +66,13 @@ public class Color {
 
     public void setBackgroundColor(String background) {
         this.background = background;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

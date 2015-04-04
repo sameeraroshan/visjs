@@ -39,6 +39,7 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     private StabilizedListener stabilizedListener;
     private ViewChangedListener viewChangedListener;
     private ZoomListener zoomListener;
+    private Gson gson = new Gson();
 
     public NetworkDiagram(Options options) {
         super();
@@ -127,9 +128,7 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
             }
         });
 
-        Gson gson = new Gson();
-        String json = gson.toJson(options);
-        callFunction("init", json);
+        callFunction("init", gson.toJson(options));
     }
 
 
@@ -140,100 +139,80 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
 
     public void updateOptions(Options options) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(options);
-        callFunction("updateOptions", json);
+        callFunction("updateOptions", gson.toJson(options));
     }
 
     public void addNode(Node... node) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(node);
-        callFunction("addNodes", json);
+        callFunction("addNodes", gson.toJson(node));
     }
 
     public void addNodes(List<Node> nodes) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(nodes);
-        callFunction("addNodes", json);
+        callFunction("addNodes", gson.toJson(nodes));
     }
 
     public void addEdges(List<Edge> edges) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(edges);
-        callFunction("addEdges", json);
+        callFunction("addEdges", gson.toJson(edges));
     }
 
     public void addEdge(Edge... edges) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(edges);
-        callFunction("addEdges", json);
+        callFunction("addEdges", gson.toJson(edges));
     }
 
     public void removeNode(Node... node) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(node);
-        callFunction("removeNode", json);
+        callFunction("removeNode", gson.toJson(node));
     }
 
     public void removeEdge(Edge... edges) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(edges);
-        callFunction("removeEdge", json);
+        callFunction("removeEdge", gson.toJson(edges));
     }
 
     public void updateNode(Node... node) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(node);
-        callFunction("updateNode", json);
+        callFunction("updateNode", gson.toJson(node));
     }
 
     public void updateEdge(Edge... edges) {
         getState().updates++;
-        Gson gson = new Gson();
-        String json = gson.toJson(edges);
-        callFunction("updateEdge", json);
+        callFunction("updateEdge", gson.toJson(edges));
     }
 
     @Deprecated
-    public void updateEdge(List<Edge> edges){
+    public void updateEdge(List<Edge> edges) {
         updateEdges(edges);
     }
-    public void updateEdges(List<Edge> edges){
-        Gson gson = new Gson();
-        String json = gson.toJson(edges);
-        callFunction("updateEdge", json);
+
+    public void updateEdges(List<Edge> edges) {
+        callFunction("updateEdge", gson.toJson(edges));
     }
+
     @Deprecated
-    public void updateNode(List<Node> nodes){
+    public void updateNode(List<Node> nodes) {
         updateNodes(nodes);
     }
 
-    public void updateNodes(List<Node> nodes){
-        Gson gson = new Gson();
-        String json = gson.toJson(nodes);
-        callFunction("updateNode", json);
+    public void updateNodes(List<Node> nodes) {
+        callFunction("updateNode", gson.toJson(nodes));
     }
 
-    public void clearNodes(){
+    public void clearNodes() {
         callFunction("clearNodes");
     }
 
-    public void clearEdges(){
+    public void clearEdges() {
         callFunction("clearEdges");
     }
 
-    public void destroyNetwork(){
+    public void destroyNetwork() {
         callFunction("destroyNetwork");
     }
 
-    public void clear(){
+    public void clear() {
         clearEdges();
         clearNodes();
     }

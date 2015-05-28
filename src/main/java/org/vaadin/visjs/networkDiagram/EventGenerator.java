@@ -1,8 +1,8 @@
 package org.vaadin.visjs.networkDiagram;
 
 import org.vaadin.visjs.networkDiagram.event.node.*;
-import org.json.JSONArray;
-import org.json.JSONException;
+import elemental.json.JsonArray;
+import elemental.json.JsonException;
 
 /**
  * Created by roshans on 11/30/14.
@@ -10,72 +10,72 @@ import org.json.JSONException;
 public class EventGenerator {
 
 
-    public static SelectEvent getNodeSelectEvent(JSONArray properties) {
+    public static SelectEvent getNodeSelectEvent(JsonArray properties) {
         SelectEvent selectEvent = null;
         try {
             selectEvent = new SelectEvent(properties);
-        } catch (JSONException e) {
+        } catch (JsonException e) {
             e.printStackTrace();
         }
         return selectEvent;
     }
 
-    public static ClickEvent getNodeClickEvent(JSONArray properties){
+    public static ClickEvent getNodeClickEvent(JsonArray properties){
         ClickEvent clickEvent = null;
         try {
             clickEvent = new ClickEvent(properties);
-        } catch (JSONException e) {
+        } catch (JsonException e) {
             e.printStackTrace();
         }
         return clickEvent;
     }
 
-    public static DoubleClickEvent getNodeDoubleClickEvent(JSONArray properties){
+    public static DoubleClickEvent getNodeDoubleClickEvent(JsonArray properties){
         DoubleClickEvent doubleClickEvent = null;
         try {
             doubleClickEvent = new DoubleClickEvent(properties);
-        } catch (JSONException e) {
+        } catch (JsonException e) {
             e.printStackTrace();
         }
         return doubleClickEvent;
     }
 
-    public static HoverEvent getNodeHoverEvent(JSONArray properties){
+    public static HoverEvent getNodeHoverEvent(JsonArray properties){
         HoverEvent hoverEvent = null;
         try {
             hoverEvent = new HoverEvent(properties);
-        } catch (JSONException e) {
+        } catch (JsonException e) {
             e.printStackTrace();
         }
         return hoverEvent;
     }
 
 
-    public static BlurEvent getNodeBlurEvent(JSONArray properties) {
+    public static BlurEvent getNodeBlurEvent(JsonArray properties) {
         BlurEvent blurEvent = null;
         try {
             blurEvent = new BlurEvent(properties);
-        } catch (JSONException e) {
+        } catch (JsonException e) {
             e.printStackTrace();
         }
         return blurEvent;
     }
 
-    public static DragStartEvent getNodeDragStartEvent(JSONArray properties) {
+    public static DragStartEvent getNodeDragStartEvent(JsonArray properties) {
         DragStartEvent dragStartEvent = null;
         try {
             dragStartEvent = new DragStartEvent(properties);
-        } catch (JSONException e) {
+        } catch (JsonException e) {
             e.printStackTrace();
         }
         return dragStartEvent;
     }
 
-    public static DragEndEvent getNodeDragEndEvent(JSONArray properties) {
+    public static DragEndEvent getNodeDragEndEvent(JsonArray properties) {
         DragEndEvent dragEndEvent = null;
         try {
             dragEndEvent = new DragEndEvent(properties);
-        } catch (JSONException e) {
+        } catch (JsonException e) {
             e.printStackTrace();
         }
         return dragEndEvent;

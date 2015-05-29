@@ -10,9 +10,9 @@ import com.vaadin.annotations.JavaScript;
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.ui.AbstractJavaScriptComponent;
 import com.vaadin.ui.JavaScriptFunction;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import elemental.json.JsonArray;
+import elemental.json.JsonException;
+import elemental.json.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,84 +43,84 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         super();
         addFunction(Constants.ON_SELECT, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 SelectEvent event = EventGenerator.getNodeSelectEvent(properties);
                 fireNodeSelectEvent(event);
             }
         });
         addFunction(Constants.ON_CLICK, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 ClickEvent event = EventGenerator.getNodeClickEvent(properties);
                 fireNodeClickEvent(event);
             }
         });
         addFunction(Constants.ON_DOUBLE_CLICK, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 DoubleClickEvent event = EventGenerator.getNodeDoubleClickEvent(properties);
                 fireNodeDoubleClickEvent(event);
             }
         });
         addFunction(Constants.ON_HOVER_NODE, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 HoverEvent event = EventGenerator.getNodeHoverEvent(properties);
                 fireNodeHoverEvent(event);
             }
         });
         addFunction(Constants.ON_BLUR_NODE, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 BlurEvent event = EventGenerator.getNodeBlurEvent(properties);
                 fireNodeBlurEvent(event);
             }
         });
         addFunction(Constants.ON_DRAG_START, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 DragStartEvent event = EventGenerator.getNodeDragStartEvent(properties);
                 fireNodeDragStartEvent(event);
             }
         });
         addFunction(Constants.ON_DRAG_END, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 DragEndEvent event = EventGenerator.getNodeDragEndEvent(properties);
                 fireNodeDragEndEvent(event);
             }
         });
         addFunction(Constants.ON_START_STABILIZATION, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 //System.out.println("onStartStabilization" + properties);
                 //fireGraphStabilizationStartEvent();
             }
         });
         addFunction(Constants.ON_STABILIZED, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 //System.out.println("onStabilized" + properties);
                 //fireGraphStabilizedEvent();
             }
         });
         addFunction(Constants.ON_VIEW_CHANGED, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 //System.out.println("onViewChanged" + properties);
                 //fireGraphViewChangedEvent();
             }
         });
         addFunction(Constants.ON_ZOOM, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 //System.out.println("onZoom" + properties);
                 //fireGraphZoomEvent();
             }
         });
         addFunction(Constants.ON_RESIZE, new JavaScriptFunction() {
             @Override
-            public void call(final JSONArray properties) throws JSONException {
+            public void call(final JsonArray properties) throws JsonException {
                 //System.out.println("onResize" + properties);
                 //fireGraphResizeEvent();
             }

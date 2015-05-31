@@ -23,7 +23,7 @@ import java.util.List;
  */
 
 @JavaScript({"js/vis.min.js", "js/networkDiagram-connector.js"})
-@StyleSheet({"css/vis.css", "css/networkDiagram.css"})
+@StyleSheet({"css/vis.min.css", "css/networkDiagram.css"})
 public class NetworkDiagram extends AbstractJavaScriptComponent {
     private List<Node.NodeSelectListener> nodeSelectListeners = new ArrayList<>();
     private List<Node.NodeClickListener> nodeClickListeners = new ArrayList<>();

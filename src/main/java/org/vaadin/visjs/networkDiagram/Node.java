@@ -3,6 +3,7 @@ package org.vaadin.visjs.networkDiagram;
 import com.google.gson.annotations.SerializedName;
 import org.vaadin.visjs.networkDiagram.event.node.*;
 import org.vaadin.visjs.networkDiagram.listener.NodeListener;
+import org.vaadin.visjs.networkDiagram.util.Color;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -341,7 +342,15 @@ public class Node {
         @SerializedName("triangleDown")
         triangleDown,
         @SerializedName("square")
-        square;
+        square,
+        @SerializedName("circularImage")
+        circularImage,
+        @SerializedName("diamond")
+        diamond,
+        @SerializedName("icon")
+        icon,
+        @SerializedName("text")
+        text;
     }
 
     public static abstract class NodeSelectListener extends NodeListener {

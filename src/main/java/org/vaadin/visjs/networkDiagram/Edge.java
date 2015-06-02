@@ -1,9 +1,8 @@
 package org.vaadin.visjs.networkDiagram;
 
-import com.google.gson.JsonObject;
-import com.vaadin.ui.Component;
 import org.vaadin.visjs.networkDiagram.options.edges.Dash;
 import com.google.gson.annotations.SerializedName;
+import org.vaadin.visjs.networkDiagram.util.Color;
 
 /**
  * Created by roshans on 10/10/14.

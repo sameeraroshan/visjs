@@ -1,5 +1,6 @@
 package org.vaadin.visjs.networkDiagram;
 
+import org.vaadin.visjs.networkDiagram.event.EventGenerator;
 import org.vaadin.visjs.networkDiagram.event.NetworkEvent;
 import org.vaadin.visjs.networkDiagram.event.node.*;
 import org.vaadin.visjs.networkDiagram.listener.GraphListener;
@@ -12,7 +13,6 @@ import com.vaadin.ui.AbstractJavaScriptComponent;
 import com.vaadin.ui.JavaScriptFunction;
 import elemental.json.JsonArray;
 import elemental.json.JsonException;
-import elemental.json.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;

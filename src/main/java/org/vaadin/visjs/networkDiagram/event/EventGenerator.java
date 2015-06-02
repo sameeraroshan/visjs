@@ -1,4 +1,4 @@
-package org.vaadin.visjs.networkDiagram;
+package org.vaadin.visjs.networkDiagram.event;
 
 import org.vaadin.visjs.networkDiagram.event.node.*;
 import elemental.json.JsonArray;

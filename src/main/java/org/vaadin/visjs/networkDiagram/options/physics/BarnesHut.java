@@ -9,11 +9,10 @@ public class BarnesHut {
 
     int gravitationalConstant =  -2000;
     int springLength =  95;
-
-    float centralGravity =  0.1f;
+    float centralGravity =  0.3f;
     float springConstant =  0.04f;
     float damping =  0.09f;
-
+    float avoidOverlap = 0;
 
     public boolean isEnabled() {
         return enabled;
@@ -61,5 +60,13 @@ public class BarnesHut {
 
     public void setDamping(float damping) {
         this.damping = damping;
+    }
+
+    public float getAvoidOverlap() {
+        return avoidOverlap;
+    }
+
+    public void setAvoidOverlap(float avoidOverlap) {
+        this.avoidOverlap = avoidOverlap;
     }
 }

@@ -1,6 +1,6 @@
-package org.vaadin.visjs.networkDiagram.options;
+package org.vaadin.visjs.networkDiagram.options.group;
 
-import org.vaadin.visjs.networkDiagram.Color;
+import org.vaadin.visjs.networkDiagram.util.Color;
 import org.vaadin.visjs.networkDiagram.Node;
 
 /**
@@ -15,6 +15,7 @@ public class Group {
     private int fontSize = 14;
     private Node.Shape shape = Node.Shape.ellipse;
     private int radius = 5;
+    private int borderWidth = 3;
 
     public Color getColor() {
         return color;

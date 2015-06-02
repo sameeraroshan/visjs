@@ -5,10 +5,10 @@ package org.vaadin.visjs.networkDiagram.options.physics;
  */
 public class Repulsion {
 
-    int springLength = 50;
-    int nodeDistance = 100;
 
+    int nodeDistance = 100;
     float centralGravity = 0.1f;
+    int springLength = 50;
     float springConstant = 0.05f;
     float damping = 0.09f;
 

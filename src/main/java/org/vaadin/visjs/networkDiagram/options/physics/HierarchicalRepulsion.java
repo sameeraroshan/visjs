@@ -5,12 +5,13 @@ package org.vaadin.visjs.networkDiagram.options.physics;
  */
 public class HierarchicalRepulsion {
 
-    int springLength = 150;
-    int nodeDistance = 60;
 
+    int nodeDistance = 60;
     float centralGravity = 0.5f;
+    int springLength = 100;
     float springConstant = 0.01f;
     float damping = 0.09f;
+
 
     public int getSpringLength() {
         return springLength;

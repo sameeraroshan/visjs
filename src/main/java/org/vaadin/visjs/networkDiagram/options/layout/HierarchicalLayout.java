@@ -1,4 +1,4 @@
-package org.vaadin.visjs.networkDiagram.options;
+package org.vaadin.visjs.networkDiagram.options.layout;
 
 /**
  * Created by roshans on 11/4/14.

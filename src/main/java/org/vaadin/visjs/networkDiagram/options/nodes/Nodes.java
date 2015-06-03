@@ -32,23 +32,12 @@ public class Nodes {
     private String title;  //Title to be displayed when the user hovers over the node. The title can be an HTML element or a string containing plain text or HTML.
     private int value;    //When a value is set, the nodes will be scaled using the options in the scaling object defined above.
 
-    int x;  //This gives a node an initial x position. When using the hierarchical layout, either the x or y position is set by the layout engine depending on the type of view.
+    /*int x;  //This gives a node an initial x position. When using the hierarchical layout, either the x or y position is set by the layout engine depending on the type of view.
             // The other value remains untouched. When using stabilization, the stabilized position may be different from the initial one.
              // To lock the node to that position use the physics or fixed options.
     int y; //This gives a node an initial y position. When using the hierarchical layout, either the x or y position is set by the layout engine depending on the type of view.
             // The other value remains untouched.
-            // When using stabilization, the stabilized position may be different from the initial one. To lock the node to that position use the physics or fixed options.
-
-
-    /*String fontColor = "black";
-    String fontFace  = "verdana";
-    int fontSize = 14;
-    String fontFill;
-    int widthMin = 16;
-    int widthMax = 64;
-    int radius = 10;
-    int radiusMin = 10;
-    int radiusMax = 30;*/
+            // When using stabilization, the stabilized position may be different from the initial one. To lock the node to that position use the physics or fixed options.*/
 
     public int getBorderWidth() {
         return borderWidth;
@@ -87,6 +76,7 @@ public class Nodes {
     }
 
     public void setImage(String image) {
+        setShape(Node.Shape.image);
         this.image = image;
     }
 
@@ -203,7 +193,7 @@ public class Nodes {
         this.value = value;
     }
 
-    public int getX() {
+    /*public int getX() {
         return x;
     }
 
@@ -217,80 +207,6 @@ public class Nodes {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-
-
-    /*public int getRadiusMax() {
-        return radiusMax;
-    }
-
-    public void setRadiusMax(int radiusMax) {
-        this.radiusMax = radiusMax;
-    }
-    public String getFontColor() {
-        return fontColor;
-    }
-
-    public void setFontColor(String fontColor) {
-        this.fontColor = fontColor;
-    }
-
-    public String getFontFace() {
-        return fontFace;
-    }
-
-    public void setFontFace(String fontFace) {
-        this.fontFace = fontFace;
-    }
-
-    public int getFontSize() {
-        return fontSize;
-    }
-
-    public void setFontSize(int fontSize) {
-        this.fontSize = fontSize;
-    }
-
-    public String getFontFill() {
-        return fontFill;
-    }
-
-    public void setFontFill(String fontFill) {
-        this.fontFill = fontFill;
-    }
-
-
-
-    public int getWidthMin() {
-        return widthMin;
-    }
-
-    public void setWidthMin(int widthMin) {
-        this.widthMin = widthMin;
-    }
-
-    public int getWidthMax() {
-        return widthMax;
-    }
-
-    public void setWidthMax(int widthMax) {
-        this.widthMax = widthMax;
-    }
-
-    public int getRadius() {
-        return radius;
-    }
-
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
-
-    public int getRadiusMin() {
-        return radiusMin;
-    }
-
-    public void setRadiusMin(int radiusMin) {
-        this.radiusMin = radiusMin;
     }*/
+
 }

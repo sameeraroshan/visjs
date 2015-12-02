@@ -5,23 +5,12 @@ package org.vaadin.visjs.networkDiagram.options.physics;
  */
 public class BarnesHut {
 
-    boolean enabled = true;
-
     int gravitationalConstant =  -2000;
+    float centralGravity =  0.3f;
     int springLength =  95;
-
-    float centralGravity =  0.1f;
-    float springConstant =  0.04f;
     float damping =  0.09f;
-
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+    float springConstant =  0.04f;
+    int avoidOverlap = 0;
 
     public int getGravitationalConstant() {
         return gravitationalConstant;
@@ -62,4 +51,13 @@ public class BarnesHut {
     public void setDamping(float damping) {
         this.damping = damping;
     }
+
+    public int getAvoidOverlap() {
+        return avoidOverlap;
+    }
+
+    public void setAvoidOverlap(int avoidOverlap) {
+        this.avoidOverlap = avoidOverlap;
+    }
+
 }

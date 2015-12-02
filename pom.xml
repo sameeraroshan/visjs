@@ -9,8 +9,8 @@
     <version>1.0.1.0</version>
     <packaging>jar</packaging>
     <properties>
-        <vaadin.version>7.4.0</vaadin.version>
-        <JDK_VERSION>1.7</JDK_VERSION>
+        <vaadin.version>7.5.6</vaadin.version>
+        <JDK_VERSION>1.8</JDK_VERSION>
         <Implementation-Version>${project.version}</Implementation-Version>
         <Implementation-Title>${project.name}</Implementation-Title>
         <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>

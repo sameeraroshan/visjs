@@ -1,4 +1,4 @@
-package org.vaadin.visjs.networkDiagram.event;
+package org.vaadin.visjs.networkDiagram.event.graph;
 
 import org.vaadin.visjs.networkDiagram.Edge;
 import org.vaadin.visjs.networkDiagram.Node;
@@ -34,6 +34,10 @@ public class NetworkEvent {
 
     public void setEdge(Edge edge) {
         this.edge = edge;
+    }
+
+    public NetworkEvent(){
+
     }
 
     public NetworkEvent(Node node){

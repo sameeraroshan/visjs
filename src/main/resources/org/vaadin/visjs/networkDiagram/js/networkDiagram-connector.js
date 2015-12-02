@@ -1,12 +1,10 @@
 /**
  * Created by roshans on 10/10/14.
  */
-
+var graph;
 window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
-
     var nodes;
     var edges;
-    var graph;
     var options = {"clickToUse" :"false"};
     var container;
     var self = this;
@@ -60,6 +58,10 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
                 self.onZoom(properties);
                 });
 
+            graph.once("stabilizationIterationsDone",function(properties){
+                self.onStabilizationIterationsDone(properties);
+            });
+
             graph.draw();
     };
 
@@ -77,8 +79,12 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
 
     };
 
+    this.reDraw = function(){
+        graph.draw();
+    }
+
     this.drawConnections = function () {
-        graph.redraw();
+        graph.draw();
     };
 
     this.removeNode = function(n){
@@ -108,4 +114,8 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
     this.destroyNetwork = function(){
         graph.destroyNetwork();
     };
+
+    this.getSeed = function () {
+        return graph.getSeed();
+    }
 };

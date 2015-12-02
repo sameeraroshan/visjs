@@ -9,6 +9,13 @@ import java.util.Map;
  * Created by roshans on 10/29/14.
  */
 public class Groups {
+    /*
+    If your nodes have groups defined that are not in the Groups module,
+    the module loops over the groups it does have, allocating one for each unknown group.
+    When all are used, it goes back to the first group. By setting this to false, the default groups will not be used in this cycle.
+     */
+    boolean useDefaultGroups = true;
+
 
     private Map<String, Group> groups = new HashMap();
 

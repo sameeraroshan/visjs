@@ -1,6 +1,6 @@
 package org.vaadin.visjs.networkDiagram.options;
 
-import org.vaadin.visjs.networkDiagram.Color;
+import org.vaadin.visjs.networkDiagram.util.Color;
 import org.vaadin.visjs.networkDiagram.Node;
 
 /**

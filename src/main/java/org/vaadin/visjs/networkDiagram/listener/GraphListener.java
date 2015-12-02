@@ -1,6 +1,6 @@
 package org.vaadin.visjs.networkDiagram.listener;
 
-import org.vaadin.visjs.networkDiagram.event.NetworkEvent;
+import org.vaadin.visjs.networkDiagram.event.graph.NetworkEvent;
 
 /**
  * Created by roshans on 11/25/14.

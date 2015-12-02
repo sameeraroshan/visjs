@@ -11,7 +11,7 @@ import elemental.json.JsonObject;
 public class DragStartEvent extends Event {
     public DragStartEvent(JsonArray properties) throws JsonException {
         super();
-        JsonArray nodes = properties.getObject(0).getArray("nodeIds");
+        JsonArray nodes = properties.getObject(0).getArray("nodes");
         for (int i = 0; i < nodes.length(); i++) {
             getNodeIds().add(nodes.getString(i));
         }

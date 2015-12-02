@@ -13,6 +13,7 @@ public class Constants {
     public static final String ON_DRAG_START = "onDragStart";
     public static final String ON_DRAG_END = "onDragEnd";
     public static final String ON_START_STABILIZATION = "onStartStabilization";
+    public static final String ON_STABILIZATION_ITERATIONS_DONE = "onStabilizationIterationsDone";
     public static final String ON_STABILIZED = "onStabilized";
     public static final String ON_VIEW_CHANGED = "onViewChanged";
     public static final String ON_ZOOM = "onZoom";

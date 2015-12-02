@@ -1,6 +1,6 @@
 package org.vaadin.visjs.networkDiagram;
 
-import org.vaadin.visjs.networkDiagram.event.NetworkEvent;
+import org.vaadin.visjs.networkDiagram.event.graph.NetworkEvent;
 import org.vaadin.visjs.networkDiagram.event.node.*;
 import org.vaadin.visjs.networkDiagram.listener.GraphListener;
 import org.vaadin.visjs.networkDiagram.options.Options;
@@ -12,7 +12,6 @@ import com.vaadin.ui.AbstractJavaScriptComponent;
 import com.vaadin.ui.JavaScriptFunction;
 import elemental.json.JsonArray;
 import elemental.json.JsonException;
-import elemental.json.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,14 +32,18 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     private List<Node.NodeDragStartListener> nodeDragStartListeners = new ArrayList<>();
     private List<Node.NodeDragEndListener> nodeDragEndListeners = new ArrayList<>();
     private ResizeListener resizeListener;
-    private StabilizationStartListener stabilizationStartListener;
+    private List<StabilizationStartListener> stabilizationStartListeners = new ArrayList<>();
+    private List<StabilizationDoneListener> stabilizationDoneListeners = new ArrayList<>();
     private StabilizedListener stabilizedListener;
     private ViewChangedListener viewChangedListener;
     private ZoomListener zoomListener;
     private Gson gson = new Gson();
+    private Options options;
 
     public NetworkDiagram(Options options) {
         super();
+        this.options = options;
+        addStyleName("vis-network-diagram");
         addFunction(Constants.ON_SELECT, new JavaScriptFunction() {
             @Override
             public void call(final JsonArray properties) throws JsonException {
@@ -126,9 +129,31 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
             }
         });
 
+        addFunction(Constants.ON_STABILIZATION_ITERATIONS_DONE, new JavaScriptFunction() {
+            @Override
+            public void call(JsonArray jsonArray) {
+                NetworkEvent event = new NetworkEvent();
+                fireGraphStabilizationStartEvent(event);
+            }
+        });
+
         callFunction("init", gson.toJson(options));
     }
 
+    /**
+     * This is called when the component is focused again after initialization. This is the fix made to report display component
+     * not loading issue when tabs are changed and refocused to the same tab. This also fixed the issue with reloading
+     * and drawing issue when moved to browser window. Solution is provided by VAADIN support
+     * @param initial
+     */
+    @Override
+    public void beforeClientResponse(boolean initial) {
+        /*if (initial) {
+
+        }*/
+        callFunction("reDraw");
+       /* callFunction("init", gson.toJson(options));*/
+    }
 
     public NetworkDiagramState getState() {
         return (NetworkDiagramState) super.getState();
@@ -136,8 +161,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
 
 
     public void updateOptions(Options options) {
+        this.options = options;
         getState().updates++;
-        callFunction("updateOptions", gson.toJson(options));
+        callFunction("setOptions", gson.toJson(options));
     }
 
     public void addNode(Node... node) {
@@ -282,7 +308,11 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void addStabilizationStartListener(StabilizationStartListener stabilizationStartListener) {
-        this.stabilizationStartListener = stabilizationStartListener;
+        this.stabilizationStartListeners.add(stabilizationStartListener);
+    }
+
+    public void addStabilizationDoneListener(StabilizationDoneListener  stabilizationDoneListener) {
+        this.stabilizationDoneListeners.add(stabilizationDoneListener);
     }
 
     public void addStabilizedListener(StabilizedListener stabilizedListener) {
@@ -301,9 +331,14 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         this.resizeListener = null;
     }
 
-    public void removeStabilizationStartListener() {
-        this.stabilizationStartListener = null;
+    public void removeStabilizationStartListener(StabilizationStartListener listener) {
+        this.stabilizationStartListeners.remove(listener);
     }
+
+    public void removeStabilizationDoneListener(StabilizationDoneListener listener) {
+        this.stabilizationDoneListeners.remove(listener);
+    }
+
 
     public void removeStabilizedListener() {
         this.stabilizedListener = null;
@@ -320,9 +355,14 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     //listeners for entire graph
 
     public static abstract class ResizeListener extends GraphListener {
+
     }
 
     public static abstract class StabilizationStartListener extends GraphListener {
+    }
+
+    public static abstract class StabilizationDoneListener extends GraphListener{
+
     }
 
     public static abstract class StabilizedListener extends GraphListener {
@@ -334,6 +374,7 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     public static abstract class ZoomListener extends GraphListener {
     }
 
+
     public void fireGraphResizeEvent(NetworkEvent event) {
         if (resizeListener != null) {
             resizeListener.onFired(event);
@@ -341,8 +382,14 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     }
 
     public void fireGraphStabilizationStartEvent(NetworkEvent event) {
-        if (stabilizationStartListener != null) {
-            stabilizationStartListener.onFired(event);
+        for(StabilizationStartListener listener : stabilizationStartListeners) {
+            listener.onFired(event);
+        }
+    }
+
+    public void fireGraphStabilizationDoneEvent(NetworkEvent event) {
+        for(StabilizationDoneListener listener : stabilizationDoneListeners) {
+            listener.onFired(event);
         }
     }
 

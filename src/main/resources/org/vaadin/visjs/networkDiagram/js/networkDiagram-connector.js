@@ -80,7 +80,7 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
     };
 
     this.reDraw = function(){
-        graph.draw();
+        graph.redraw();
     }
 
     this.drawConnections = function () {

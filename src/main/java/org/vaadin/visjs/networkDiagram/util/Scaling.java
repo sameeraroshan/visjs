@@ -10,7 +10,7 @@ public class Scaling {
     /*
     This is the maximum allowed width when the edges are scaled using the value option.
      */
-    private int max = 15;
+    private int max = 100;
 
     /*
     When false, the label is not allowed to scale with the edge.

@@ -152,6 +152,7 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
 
         }*/
         callFunction("reDraw");
+        super.beforeClientResponse(initial);
        /* callFunction("init", gson.toJson(options));*/
     }
 

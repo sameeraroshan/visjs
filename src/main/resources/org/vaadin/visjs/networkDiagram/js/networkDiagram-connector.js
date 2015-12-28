@@ -76,11 +76,14 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
 
     this.addEdges = function (e) {
         edges.add(JSON.parse(e));
-
     };
 
     this.reDraw = function(){
         graph.redraw();
+    }
+
+    this.stabilize = function(){
+        graph.stabilize();
     }
 
     this.drawConnections = function () {

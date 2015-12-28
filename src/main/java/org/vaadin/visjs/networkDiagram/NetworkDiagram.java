@@ -156,6 +156,12 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
        /* callFunction("init", gson.toJson(options));*/
     }
 
+
+
+    public void stabilize(){
+        callFunction("stabilize");
+    }
+
     public NetworkDiagramState getState() {
         return (NetworkDiagramState) super.getState();
     }

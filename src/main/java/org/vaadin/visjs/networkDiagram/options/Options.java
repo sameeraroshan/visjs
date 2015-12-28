@@ -16,13 +16,13 @@ public class Options {
     private String locale = "en";
     private Locales locales = new Locales();
     private boolean clickToUse = false;
-    private Configure configure;
+    private Configure configure = new Configure();
     private Edges edges =  new Edges();
     private Nodes nodes = new Nodes();
     private Groups groups;
     private Layout layout = new Layout();
-    private Interaction interaction;
-    private Manipulation manipulation;
+    private Interaction interaction = new Interaction();
+    private Manipulation manipulation= new Manipulation();
     private Physics physics = new Physics();
 
 

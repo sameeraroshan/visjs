@@ -1,7 +1,9 @@
 package org.vaadin.visjs.networkDiagram.options.modules;
 
+import org.vaadin.visjs.networkDiagram.options.Scaling;
+import org.vaadin.visjs.networkDiagram.options.Shadow;
+import org.vaadin.visjs.networkDiagram.options.Smooth;
 import org.vaadin.visjs.networkDiagram.util.*;
-import org.vaadin.visjs.networkDiagram.Edge;
 
 /**
  * Created by roshans on 10/29/14.

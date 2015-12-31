@@ -1,4 +1,4 @@
-package org.vaadin.visjs.networkDiagram.util;
+package org.vaadin.visjs.networkDiagram.options;
 
 import com.google.gson.annotations.SerializedName;
 

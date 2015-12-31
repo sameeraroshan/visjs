@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import org.vaadin.visjs.networkDiagram.options.physics.BarnesHut;
 import org.vaadin.visjs.networkDiagram.options.physics.HierarchicalRepulsion;
 import org.vaadin.visjs.networkDiagram.options.physics.Repulsion;
-import org.vaadin.visjs.networkDiagram.util.Stabilization;
+import org.vaadin.visjs.networkDiagram.options.Stabilization;
 
 /**
  * Created by roshans on 10/29/14.

@@ -33,7 +33,7 @@ public class Manipulation {
     This function changes the label of the new node into 'hello world'.
     If you do not want the node created, do not call the callback function or call the callback function null or no argument.
      */
-    String addNode = "true";
+    boolean addNode = true;
     /*
     If boolean, toggle the availability of the 'addEdge' button in the GUI,
     the API through the methods will still work except (obviously) there will be no handler function.
@@ -61,7 +61,7 @@ public class Manipulation {
     This example code will show a popup if you connect a node to itself to ask you if that was what you wanted.
     If you do not want the edge created, do not call the callback function or call the callback function null or no argument.
      */
-    String addEdge = "true";
+    boolean addEdge = true;
     /*
     Editing of nodes is only possible when a handling function is supplied. If this is not the case, editing of nodes will be disabled.
     The function will be called when a node is selected and the 'Edit Node' button on the toolbar is pressed.
@@ -74,19 +74,19 @@ public class Manipulation {
     If the callback is not performed, the edge will remain hanging where it was released.
     To cancel, call the callback function with null as argument or without arguments.
      */
-    String editEdge = "true";
+    boolean editEdge = true;
     /*
     If boolean, toggle the deletion of nodes in the GUI. If function, it will be called when a node is selected and the
     'Delete selected' button is pressed. When using a function, it will receive a callback and an object with an array
     of selected nodeIds and an array of selected edges Ids. These are the items that will be deleted if the callback is performed.
      */
-    String deleteNode = "true";
+    boolean deleteNode = true;
     /*
     If boolean, toggle the deletion of edges in the GUI. If function, it will be called when an edge is selected and the
     'Delete selected' button is pressed. When using a function, it will receive a callback and an object with an array
     of selected nodeIds (empty) and an array of selected edges Ids. These are the items that will be deleted if the callback is performed.
      */
-    String deleteEdge = "true";
+    boolean deleteEdge = true;
     /*
     You can supply any styling information you'd like here. All fields described in the nodes module are allowed except
     obviously for id, x, y and fixed.
@@ -126,19 +126,19 @@ public class Manipulation {
         this.initiallyActive = initiallyActive;
     }
 
-    public String getAddNode() {
+    public boolean getAddNode() {
         return addNode;
     }
 
-    public void setAddNode(String addNode) {
+    public void setAddNode(boolean addNode) {
         this.addNode = addNode;
     }
 
-    public String getAddEdge() {
+    public boolean getAddEdge() {
         return addEdge;
     }
 
-    public void setAddEdge(String addEdge) {
+    public void setAddEdge(boolean addEdge) {
         this.addEdge = addEdge;
     }
 
@@ -150,27 +150,27 @@ public class Manipulation {
         this.editNode = editNode;
     }
 
-    public String getEditEdge() {
+    public boolean getEditEdge() {
         return editEdge;
     }
 
-    public void setEditEdge(String editEdge) {
+    public void setEditEdge(boolean editEdge) {
         this.editEdge = editEdge;
     }
 
-    public String getDeleteNode() {
+    public boolean getDeleteNode() {
         return deleteNode;
     }
 
-    public void setDeleteNode(String deleteNode) {
+    public void setDeleteNode(boolean deleteNode) {
         this.deleteNode = deleteNode;
     }
 
-    public String getDeleteEdge() {
+    public boolean getDeleteEdge() {
         return deleteEdge;
     }
 
-    public void setDeleteEdge(String deleteEdge) {
+    public void setDeleteEdge(boolean deleteEdge) {
         this.deleteEdge = deleteEdge;
     }
 

@@ -18,6 +18,7 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
             options = JSON.parse(o);
         }else {
             options = {};
+
         }
 
         nodes = new vis.DataSet();
@@ -85,6 +86,10 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
 
     this.reDraw = function(){
         graph.redraw();
+    }
+
+    this.draw = function(){
+        graph.draw();
     }
 
     this.stabilize = function(){

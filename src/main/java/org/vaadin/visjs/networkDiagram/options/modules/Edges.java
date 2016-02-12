@@ -23,6 +23,9 @@ public class Edges {
     private String label;
     private boolean labelHighlightBold = true;
     /*
+        * The physics simulation gives edges a spring length. This value can override the length of the spring in rest.*/
+    private int length = 10;
+    /*
     The physics simulation gives edges a spring length. This value can override the length of the spring in rest.
      */
    /* private float length = 100;*/
@@ -151,6 +154,15 @@ public class Edges {
     public void setLabelHighlightBold(boolean labelHighlightBold) {
         this.labelHighlightBold = labelHighlightBold;
     }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
 
    /* public float getLength() {
         return length;

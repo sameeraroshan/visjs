@@ -27,7 +27,7 @@ public class Stabilization {
     /*
     Toggle whether or not you want the view to zoom to fit all nodes when the stabilization is finished.
      */
-    boolean fit = false;
+    boolean fit = true;
 
     public boolean isEnabled() {
         return enabled;

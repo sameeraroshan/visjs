@@ -20,6 +20,13 @@ public class Node extends Nodes {
     private transient List<Edge> edgeList = new ArrayList<>();
     private transient Map<String, Edge> edgeMap = new HashMap<>();
 
+    public Node(int id){
+        this.id = Integer.toString(id);
+    }
+
+    public Node(String id){
+        this.id = id;
+    }
     public Node(int id, String label) {
         this.id = Integer.toString(id);
         setLabel(label);

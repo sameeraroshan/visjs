@@ -161,13 +161,16 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
      */
     @Override
     public void beforeClientResponse(boolean initial) {
-        /*if (initial) {
-
-        }*/
-        //callFunction("reDraw");
         super.beforeClientResponse(initial);
-       /* callFunction("init", gson.toJson(options));*/
         fireBeforeClientResponseEvent(initial);
+    }
+
+    public void reDraw(){
+        callFunction("reDraw");
+    }
+
+    public void draw(){
+        callFunction("draw");
     }
 
 

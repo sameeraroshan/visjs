@@ -50,6 +50,21 @@ public class Nodes {
     //private int x;
     //private int y;
 
+
+    /** This gives a node an initial x position. When using the hierarchical layout, either the x or y position is set by
+     * the layout engine depending on the type of view. The other value remains untouched. When using stabilization,
+     * the stabilized position may be different from the initial one. To lock the node to that position use the physics
+     * or fixed options.
+    * */
+    private int x;
+
+  /*  * This gives a node an initial y position. When using the hierarchical layout, either the x or y position is set by
+     * the layout engine depending on the type of view. The other value remains untouched. When using stabilization, the
+      * stabilized position may be different from the initial one. To lock the node to that position use the physics or
+      * fixed options.
+    * */
+    private int y;
+
     public int getBorderWidth() {
         return borderWidth;
     }
@@ -226,4 +241,21 @@ public class Nodes {
     public void setValue(int value) {
         this.value = value;
     }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
 }

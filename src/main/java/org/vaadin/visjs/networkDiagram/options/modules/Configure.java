@@ -5,7 +5,7 @@ public class Configure {
     Toggle the configuration interface on or off. This is an optional parameter.
     If left undefined and any of the other properties of this object are defined, this will be set to true.
      */
-    private boolean enabled = true;
+    private boolean enabled = false;
     /*
     When a boolean, true gives you all options, false will not show any. If a string is supplied, any combination of the
     following is allowed: nodes, edges, layout, interaction, manipulation, physics, selection, renderer. Feel free to

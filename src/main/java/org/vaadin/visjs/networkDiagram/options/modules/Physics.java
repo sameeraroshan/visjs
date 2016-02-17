@@ -2,6 +2,7 @@ package org.vaadin.visjs.networkDiagram.options.modules;
 
 import com.google.gson.annotations.SerializedName;
 import org.vaadin.visjs.networkDiagram.options.physics.BarnesHut;
+import org.vaadin.visjs.networkDiagram.options.physics.ForceAtlas2Based;
 import org.vaadin.visjs.networkDiagram.options.physics.HierarchicalRepulsion;
 import org.vaadin.visjs.networkDiagram.options.physics.Repulsion;
 import org.vaadin.visjs.networkDiagram.options.Stabilization;
@@ -27,6 +28,8 @@ public class Physics {
     which is here distance independent, and the repulsion being linear instead of quadratic. Finally, all node masses have a
     multiplier based on the amount of connected edges plus one.
      */
+
+    private ForceAtlas2Based forceAtlas2Based = new ForceAtlas2Based();
     /*
     The repulsion model assumes nodes have a simplified repulsion field around them.
     It's force linearly decreases from 1 (at 0.5*nodeDistance and smaller) to 0 (at 2*nodeDistance).
@@ -131,6 +134,14 @@ public class Physics {
 
     public void setBarnesHut(BarnesHut barnesHut) {
         this.barnesHut = barnesHut;
+    }
+
+    public ForceAtlas2Based getForceAtlas2Based() {
+        return forceAtlas2Based;
+    }
+
+    public void setForceAtlas2Based(ForceAtlas2Based forceAtlas2Based) {
+        this.forceAtlas2Based = forceAtlas2Based;
     }
 
     public Repulsion getRepulsion() {

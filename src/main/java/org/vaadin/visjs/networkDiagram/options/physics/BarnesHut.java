@@ -10,7 +10,12 @@ public class BarnesHut {
     int springLength =  95;
     float damping =  0.09f;
     float springConstant =  0.04f;
-    int avoidOverlap = 0;
+    /*
+    Accepted range: [0 .. 1]. When larger than 0, the size of the node is taken into account.
+    The distance will be calculated from the radius of the encompassing circle of the node for both the gravity model.
+     Value 1 is maximum overlap avoidance.
+     */
+    double avoidOverlap = 0.5;
 
     public int getGravitationalConstant() {
         return gravitationalConstant;
@@ -52,11 +57,11 @@ public class BarnesHut {
         this.damping = damping;
     }
 
-    public int getAvoidOverlap() {
+    public double getAvoidOverlap() {
         return avoidOverlap;
     }
 
-    public void setAvoidOverlap(int avoidOverlap) {
+    public void setAvoidOverlap(double avoidOverlap) {
         this.avoidOverlap = avoidOverlap;
     }
 

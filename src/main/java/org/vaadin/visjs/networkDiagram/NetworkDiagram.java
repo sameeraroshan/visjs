@@ -1,6 +1,7 @@
 package org.vaadin.visjs.networkDiagram;
 
 import org.vaadin.visjs.networkDiagram.event.graph.NetworkEvent;
+import org.vaadin.visjs.networkDiagram.event.graph.StabilizationProgressEvent;
 import org.vaadin.visjs.networkDiagram.event.node.*;
 import org.vaadin.visjs.networkDiagram.listener.BeforeClientResponseListener;
 import org.vaadin.visjs.networkDiagram.listener.GraphListener;
@@ -34,6 +35,7 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     private List<Node.NodeDragEndListener> nodeDragEndListeners = new ArrayList<>();
     private ResizeListener resizeListener;
     private List<StabilizationStartListener> stabilizationStartListeners = new ArrayList<>();
+    private List<StabilizationProgressListener> stabilizationProgressListeners = new ArrayList<>();
     private List<StabilizationDoneListener> stabilizationDoneListeners = new ArrayList<>();
     private List<BeforeClientResponseListener> beforeClientResponseListeners = new ArrayList<>();
     private StabilizedListener stabilizedListener;
@@ -112,6 +114,23 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
                 //fireGraphStabilizationStartEvent();
             }
         });
+
+        addFunction(Constants.ON_STABILIZATION_PROGRESS, new JavaScriptFunction() {
+            @Override
+            public void call(final JsonArray properties) throws JsonException {
+                System.out.println("onStartStabilization" + properties);
+                StabilizationProgressEvent event = new StabilizationProgressEvent(properties);
+                fireGraphStabilizationProgressEvent(event);
+            }
+        });
+
+        addFunction(Constants.ON_STABILIZATION_ITERATIONS_DONE, new JavaScriptFunction() {
+            @Override
+            public void call(JsonArray jsonArray) {
+               // NetworkEvent event = new NetworkEvent();
+               // fireGraphStabilizationStartEvent(event);
+            }
+        });
         addFunction(Constants.ON_STABILIZED, new JavaScriptFunction() {
             @Override
             public void call(final JsonArray properties) throws JsonException {
@@ -141,16 +160,12 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
             }
         });
 
-        addFunction(Constants.ON_STABILIZATION_ITERATIONS_DONE, new JavaScriptFunction() {
-            @Override
-            public void call(JsonArray jsonArray) {
-                NetworkEvent event = new NetworkEvent();
-                fireGraphStabilizationStartEvent(event);
-            }
-        });
+
 
         callFunction("init", gson.toJson(options));
     }
+
+
 
     /**
      * This is called when the component is focused again after initialization. This is the fix made to report display component
@@ -164,6 +179,8 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         super.beforeClientResponse(initial);
         fireBeforeClientResponseEvent(initial);
     }
+
+
 
     public void reDraw(){
         callFunction("reDraw");
@@ -334,6 +351,10 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         this.stabilizationStartListeners.add(stabilizationStartListener);
     }
 
+    public void addStabilizationProgressListener(StabilizationProgressListener listener){
+        this.stabilizationProgressListeners.add(listener);
+    }
+
     public void addStabilizationDoneListener(StabilizationDoneListener stabilizationDoneListener) {
         this.stabilizationDoneListeners.add(stabilizationDoneListener);
     }
@@ -356,6 +377,10 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
 
     public void removeStabilizationStartListener(StabilizationStartListener listener) {
         this.stabilizationStartListeners.remove(listener);
+    }
+
+    public void removeStabilizationProgressListener(StabilizationProgressListener listener){
+        this.stabilizationProgressListeners.remove(listener);
     }
 
     public void removeStabilizationDoneListener(StabilizationDoneListener listener) {
@@ -392,6 +417,11 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     public static abstract class StabilizationStartListener extends GraphListener {
     }
 
+    public static abstract class StabilizationProgressListener {
+        public abstract void onFired(StabilizationProgressEvent event);
+    }
+
+
     public static abstract class StabilizationDoneListener extends GraphListener {
 
     }
@@ -416,6 +446,12 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
 
     public void fireGraphStabilizationStartEvent(NetworkEvent event) {
         for (StabilizationStartListener listener : stabilizationStartListeners) {
+            listener.onFired(event);
+        }
+    }
+
+    private void fireGraphStabilizationProgressEvent(StabilizationProgressEvent event) {
+        for (StabilizationProgressListener listener : stabilizationProgressListeners) {
             listener.onFired(event);
         }
     }

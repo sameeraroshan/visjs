@@ -16,6 +16,7 @@ import elemental.json.JsonArray;
 import elemental.json.JsonException;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -205,7 +206,10 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         getState().updates++;
         callFunction("setOptions", gson.toJson(options));
     }
-
+    @Deprecated
+    /*
+    adding one by one for large number of nodes make browser freeze
+     */
     public void addNode(Node... node) {
         getState().updates++;
         callFunction("addNodes", gson.toJson(node));
@@ -216,12 +220,24 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         callFunction("addNodes", gson.toJson(nodes));
     }
 
-    public void addEdges(List<Edge> edges) {
+    public void addNodes(Collection<Node> nodes) {
+        getState().updates++;
+        callFunction("addNodes", gson.toJson(nodes));
+    }
+    @Deprecated
+    /*
+    adding one by one for large number of edges make browser freeze
+     */
+    public void addEdge(Edge... edges) {
         getState().updates++;
         callFunction("addEdges", gson.toJson(edges));
     }
 
-    public void addEdge(Edge... edges) {
+    public void addEdges(List<Edge> edges) {
+        getState().updates++;
+        callFunction("addEdges", gson.toJson(edges));
+    }
+    public void addEdges(Collection<Edge> edges) {
         getState().updates++;
         callFunction("addEdges", gson.toJson(edges));
     }

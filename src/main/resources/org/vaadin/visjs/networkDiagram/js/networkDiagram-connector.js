@@ -16,13 +16,15 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
     this.init = function (o) {
         if (o != "null") {
             options = JSON.parse(o);
+            nodes = new vis.DataSet(options.data.nodes);
+            edges = new vis.DataSet(options.data.edges);
         } else {
             options = {};
-
+            nodes = new vis.DataSet();
+            edges = new vis.DataSet();
         }
 
-        nodes = new vis.DataSet();
-        edges = new vis.DataSet();
+
         container = this.getElement();
         graph = new vis.Network(container, {nodes: nodes, edges: edges}, options);
 

@@ -24,6 +24,7 @@ public class Options {
     private Interaction interaction = new Interaction();
     private Manipulation manipulation= new Manipulation();
     private Physics physics = new Physics();
+    private Data data = new Data();
 
 
     public boolean isAutoResize() {
@@ -136,6 +137,11 @@ public class Options {
 
     public void setPhysics(Physics physics) {
         this.physics = physics;
+    }
+
+
+    public Data getData() {
+        return data;
     }
 
 }

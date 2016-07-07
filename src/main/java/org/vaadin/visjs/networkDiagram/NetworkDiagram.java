@@ -178,6 +178,7 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     @Override
     public void beforeClientResponse(boolean initial) {
         super.beforeClientResponse(initial);
+        draw();
         fireBeforeClientResponseEvent(initial);
     }
 
@@ -198,6 +199,10 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
 
     public NetworkDiagramState getState() {
         return (NetworkDiagramState) super.getState();
+    }
+
+    public void fitToScreen(){
+        callFunction("fitToScreen");
     }
 
 

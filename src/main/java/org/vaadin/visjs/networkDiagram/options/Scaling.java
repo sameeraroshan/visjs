@@ -18,7 +18,7 @@ public class Scaling {
     For further customization, you can supply an object
      */
 
-    private Label label;
+    private Label label = new Label();
 
     /*
     If edges have value fields, this function determines how the size of the nodes

@@ -39,7 +39,7 @@ public class Edges {
    properties in this object. Keep in mind that when using scaling,
    the width option is neglected.
     */
-    private Scaling scaling = new Scaling();
+    /*private Scaling scaling = new Scaling();*/
 
     /*
         The selectionWidth determines the width of the edge when the edge is selected.
@@ -180,13 +180,13 @@ public class Edges {
         this.physics = physics;
     }
 
-    public Scaling getScaling() {
+  /*  public Scaling getScaling() {
         return scaling;
     }
 
     public void setScaling(Scaling scaling) {
         this.scaling = scaling;
-    }
+    }*/
 
     public int getSelectionWidth() {
         return selectionWidth;

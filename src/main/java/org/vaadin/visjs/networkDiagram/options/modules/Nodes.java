@@ -29,7 +29,7 @@ public class Nodes {
     private int level;
     private int mass = 1;
     private boolean physics = true;
-    private Scaling scaling = new Scaling();
+  /*  private Scaling scaling = new Scaling();*/
     private Shadow shadow = new Shadow();
     private Node.Shape shape = Node.Shape.ellipse;
     private ShapeProperties shapeProperties = new ShapeProperties();
@@ -46,7 +46,7 @@ public class Nodes {
     /*
     When a value is set, the nodes will be scaled using the options in the scaling object defined above.
      */
-    private int value;
+    /*private int value;*/
     //private int x;
     //private int y;
 
@@ -186,13 +186,13 @@ public class Nodes {
         this.physics = physics;
     }
 
-    public Scaling getScaling() {
+    /*public Scaling getScaling() {
         return scaling;
     }
 
     public void setScaling(Scaling scaling) {
         this.scaling = scaling;
-    }
+    }*/
 
     public Shadow getShadow() {
         return shadow;
@@ -234,13 +234,13 @@ public class Nodes {
         this.title = title;
     }
 
-    public int getValue() {
+  /*  public int getValue() {
         return value;
     }
 
     public void setValue(int value) {
         this.value = value;
-    }
+    }*/
 
     public int getY() {
         return y;

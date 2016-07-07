@@ -24,58 +24,15 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
             edges = new vis.DataSet();
         }
 
+        draw();
 
-        container = this.getElement();
-        graph = new vis.Network(container, {nodes: nodes, edges: edges}, options);
-
-        graph.on('select', function (properties) {
-            self.onSelect(properties);
-        });
-        graph.on('click', function (properties) {
-            self.onClick(properties);
-        });
-        graph.on('doubleClick', function (properties) {
-            self.onDoubleClick(properties);
-        });
-        graph.on('hoverNode', function (properties) {
-            self.onHoverNode(properties);
-        });
-        graph.on("blurNode", function (properties) {
-            self.onBlurNode(properties);
-        });
-        graph.on('resize', function (properties) {
-            self.onResize(properties);
-        });
-        graph.on('dragStart', function (properties) {
-            self.onDragStart(properties);
-        });
-        graph.on('dragEnd', function (properties) {
-            self.onDragEnd(properties);
-        });
-        graph.on('startStabilization', function (properties) {
-            self.onStartStabilization(properties);
-        });
-        graph.on('stabilizationProgress', function (properties) {
-            self.onStabilizationProgress(properties);
-        });
-        graph.once("stabilizationIterationsDone", function (properties) {
-            self.onStabilizationIterationsDone(properties);
-        });
-
-        graph.on('stabilized', function (properties) {
-            self.onStabilized(properties);
-        });
-        graph.on('viewChanged', function (properties) {
-            self.onViewChanged(properties);
-        });
-
-        graph.on('zoom', function (properties) {
-            self.onZoom(properties);
-        });
-
-
-        graph.draw();
     };
+
+
+
+    this.fitToScreen = function(){
+        graph.fit();
+    }
 
     this.updateOptions = function (o) {
         options = JSON.parse(o);
@@ -91,11 +48,62 @@ window.org_vaadin_visjs_networkDiagram_NetworkDiagram = function () {
     };
 
     this.reDraw = function () {
+
+
         graph.redraw();
     }
 
     this.draw = function () {
-        graph.draw();
+        container = this.getElement();
+        if(container && nodes && edges){
+            graph = new vis.Network(container, {nodes: nodes, edges: edges}, options);
+
+            graph.on('select', function (properties) {
+                self.onSelect(properties);
+            });
+            graph.on('click', function (properties) {
+                self.onClick(properties);
+            });
+            graph.on('doubleClick', function (properties) {
+                self.onDoubleClick(properties);
+            });
+            graph.on('hoverNode', function (properties) {
+                self.onHoverNode(properties);
+            });
+            graph.on("blurNode", function (properties) {
+                self.onBlurNode(properties);
+            });
+            graph.on('resize', function (properties) {
+                self.onResize(properties);
+            });
+            graph.on('dragStart', function (properties) {
+                self.onDragStart(properties);
+            });
+            graph.on('dragEnd', function (properties) {
+                self.onDragEnd(properties);
+            });
+            graph.on('startStabilization', function (properties) {
+                self.onStartStabilization(properties);
+            });
+            graph.on('stabilizationProgress', function (properties) {
+                self.onStabilizationProgress(properties);
+            });
+            graph.once("stabilizationIterationsDone", function (properties) {
+                self.onStabilizationIterationsDone(properties);
+            });
+
+            graph.on('stabilized', function (properties) {
+                self.onStabilized(properties);
+            });
+            graph.on('viewChanged', function (properties) {
+                self.onViewChanged(properties);
+            });
+
+            graph.on('zoom', function (properties) {
+                self.onZoom(properties);
+            });
+            graph.draw();
+        }
     }
 
     this.stabilize = function () {

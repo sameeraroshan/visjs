@@ -57,7 +57,9 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
         init();
     }
 
-    protected void init() {
+
+
+    public void init() {
         addStyleName("vis-network-diagram");
         addFunction(Constants.ON_SELECT, new JavaScriptFunction() {
             @Override
@@ -178,7 +180,6 @@ public class NetworkDiagram extends AbstractJavaScriptComponent {
     @Override
     public void beforeClientResponse(boolean initial) {
         super.beforeClientResponse(initial);
-        draw();
         fireBeforeClientResponseEvent(initial);
     }
 

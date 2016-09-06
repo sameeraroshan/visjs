@@ -49,7 +49,7 @@ public class Scaling {
     private String customScalingFunction;
 
 
-    public class Label{
+    public static class Label{
         /*
                 Toggle the scaling of the label on or off.
                  If this option is not defined, it is set to true if any of the properties in this

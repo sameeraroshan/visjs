@@ -1,6 +1,6 @@
 package org.vaadin.visjs.networkDiagram.listener;
 
 
-public abstract class BeforeClientResponseListener {
-    public abstract void beforeClientResponse(boolean initial);
+public interface BeforeClientResponseListener {
+     void beforeClientResponse(boolean initial);
 }
